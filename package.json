@@ -1,0 +1,33 @@
+{
+  "name": "sand-amqp",
+  "version": "0.0.1",
+  "description": "Sand AMQP Library",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SandJS/amqp.git"
+  },
+  "keywords": [
+    "sand",
+    "amqp"
+  ],
+  "author": {
+    "name": "Paul Marrapese",
+    "email": "paul.marrapese@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SandJS/amqp/issues"
+  },
+  "homepage": "https://github.com/SandJS/amqp#readme",
+  "dependencies": {
+    "@sazze/amqp": "^1.4.0",
+    "co": "^4.6.0",
+    "require-all": "^2.0.0",
+    "sand": "^1.6.2",
+    "sand-grain": "^1.1.1"
+  }
+}
