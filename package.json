@@ -1,6 +1,6 @@
 {
   "name": "sand-amqp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Sand AMQP Library",
   "main": "index.js",
   "scripts": {
