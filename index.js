@@ -94,26 +94,38 @@ class AMQP extends SandGrain {
    */
   autoStart() {
     // Load consumers
-    let consumerDir = path.join(sand.appPath, this.config.consumerDir);
+    if (this.config.consumerDir) {
+      let consumerDir = path.join(sand.appPath, this.config.consumerDir);
 
-    requireAll({
-      dirname: consumerDir,
-      map: (file, filepath) => {
-        let config = require(filepath);
-        this.startConsumer(config, file);
+      try {
+        requireAll({
+          dirname: consumerDir,
+          map: (file, filepath) => {
+            let config = require(filepath);
+            this.startConsumer(config, file);
+          }
+        });
+      } catch (e) {
+        sand.error('Autostarting of consumers failed', e.stack || e.message || e);
       }
-    });
+    }
 
     // Load publishers
-    let publisherDir = path.join(sand.appPath, this.config.publisherDir);
+    if (this.config.publisherDir) {
+      let publisherDir = path.join(sand.appPath, this.config.publisherDir);
 
-    requireAll({
-      dirname: publisherDir,
-      map: (file, filepath) => {
-        let config = require(filepath);
-        this.startPublisher(config, file);
+      try {
+        requireAll({
+          dirname: publisherDir,
+          map: (file, filepath) => {
+            let config = require(filepath);
+            this.startPublisher(config, file);
+          }
+        });
+      } catch (e) {
+        sand.error('Autostarting of publishers failed', e.stack || e.message || e);
       }
-    });
+    }
   }
 
 }

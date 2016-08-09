@@ -25,6 +25,8 @@ If `name` is provided, the consumer will be available via the `sand.amqp.consume
 ### Autostarting
 If `autoStart` is set in the configuration, `sand-amqp` will automatically instantiate any publisher and consumer configurations stored in the `publisherDir` and  `consumerDir` directories. This is useful if you want publishers and consumers to automatically start and persist throughout the lifetime of your application.
 
+`publisherDir` and `consumerDir` values should be relative to your Sand application path.
+
 ## Example
 This example Sand application will connect to the local AMQP instance and publish the string `hello world` to the `demo` exchange once per second.
 
