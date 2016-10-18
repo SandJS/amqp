@@ -133,3 +133,19 @@ class AMQP extends SandGrain {
 module.exports = AMQP;
 module.exports.Consumer = Consumer;
 module.exports.Publisher = Publisher;
+
+
+// To Support Logging until @sazze/amqp is changed
+// Support Aura logging. This must be declared before Aura modules are required. (e.g. @sazze/node-amqp)
+if (!global.aura) {
+  global.aura = {
+    log: {
+      _log: (level, args) => global.sand && global.sand[level] ? global.sand[level].apply(global.sand, args) : console.log.apply(console, args),
+      error: function() { this._log('error', arguments) },
+      warn: function() { this._log('warn', arguments) },
+      info: function() { this._log('log', arguments) },
+      debug: function() { this._log('log', arguments) },
+      verbose: function() { this._log('log', arguments) }
+    }
+  };
+}
