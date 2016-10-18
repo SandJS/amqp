@@ -14,12 +14,16 @@ Configuration options are available [here](https://github.com/sazze/node-amqp/bl
  
 If `name` is provided, the publisher will be available via the `sand.amqp.publishers` object.
 
+In addition to the publisher options there is also `autoConnect`, which defaults to **true** and determines whether or not to auto connect on instantiation.
+
 ### Consumer
 To instantiate a new `Consumer` instance, call `sand.amqp.startConsumer(config, name)`. 
 
 Configuration options are available [here](https://github.com/sazze/node-amqp/blob/development/master/lib/consumer.js); they are defaulted by the `amqp` values in your application's `config/amqp.js` file. If a `handler` function is provided as an option, it is invoked when a message is received. `handler` may be a regular function or a generator function.
 
 If `name` is provided, the consumer will be available via the `sand.amqp.consumers` object.  
+
+In addition to the consumer options, specific to this library there is also `autoStart`, which defaults to **true** and determines whether or not the consumer starts on instantiation. There is also `runInSandContext` which defaults to **true**. If _TRUE_ then the `handler` function runs inside a sand context.
 
 
 ### Autostarting

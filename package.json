@@ -26,6 +26,7 @@
   "dependencies": {
     "@sazze/amqp": "^1.4.0",
     "co": "^4.6.0",
+    "lodash": "^4.16.4",
     "require-all": "^2.0.0",
     "sand": "^1.6.2",
     "sand-grain": "^1.1.1"
